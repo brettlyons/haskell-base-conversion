@@ -9,7 +9,9 @@ digs x = digs (x `div` 10) ++ [x `mod` 10]
 
 
 {-result :: Int -> Int -> Int-}
-myResult = (sum (zipWith (*) (reverse (digs 1233214)) (powerSet 7 7)))
+reversedDigitList x = reverse $ digs x
+
+myResult = (sum (zipWith (*) $ reversedDigitList 1233214 $ powerSet 7 7))
 
 main = do
   print myResult
